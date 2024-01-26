@@ -10,13 +10,23 @@ module.exports = () => {
         devtool: 'inline-source-map',
         module: {
             rules: [
-                {test: /\.(ts|js)x?$/, use: 'ts-loader',}
+                {test: /\.(ts|js)x?$/, use: 'ts-loader'},
+                {
+                    test: /\.s[ac]ss$/i,
+                    use: [
+                        "style-loader",
+                        "css-loader",
+                        "sass-loader",
+                    ],
+                },
             ],
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
         },
         output: {
+            clean: true,
+            publicPath: '/',
             filename: '[name].bundle.js',
             path: path.resolve(__dirname, 'dist'),
         },
