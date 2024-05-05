@@ -1,9 +1,11 @@
 import React, {FC} from 'react';
+import Layout from "./containers/Layout";
 
-const App: FC = () => {
-  return <div className="App">
-    Beginner Config 
-  </div>
+const App: FC = (props) => {
+
+    return <>
+        <Layout/>
+    </>
 }
 
 export default App;
