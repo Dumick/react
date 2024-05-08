@@ -1,11 +1,8 @@
 import React, {FC} from 'react';
-import Layout from "./containers/Layout";
+import Layout from "./conteiners/Layout";
 
-const App: FC = (props) => {
-
-    return <>
-        <Layout/>
-    </>
+const App: FC = () => {
+    return <Layout/>
 }
 
 export default App;

@@ -2,19 +2,23 @@
   "name": "tmp-react",
   "version": "0.1.0",
   "main": "./src/index.tsx",
+  "scripts": {
+    "start": "webpack serve --open",
+    "build": "webpack --config webpack.config.ts"
+  },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@react-icons/all-files": "^4.1.0",
     "@types/node": "^16.18.75",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.4",
+    "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
-  },
-  "scripts": {
-    "start": "webpack serve --open",
-    "build": "webpack --config webpack.config.ts"
+    "typescript": "^4.9.5",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@webpack-cli/serve": "^2.0.5",
