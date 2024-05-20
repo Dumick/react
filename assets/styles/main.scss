@@ -1,0 +1,18 @@
+*, *:after, *:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+fieldset {
+	border: none;
+}
+
+@import "mixins";
+
+@import "header";
+@import "blocks";

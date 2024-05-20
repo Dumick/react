@@ -1,12 +1,31 @@
 import {ITabsOptionItem} from "../components/MyTabs";
 import * as routers from "./routes";
+import {ISelectOption} from "./types";
+
+export enum ERoleCode {
+    ADMIN = 'ADMIN',
+    CLIENT = 'CLIENT',
+    EMPLOYER = 'EMPLOYER'
+}
+
+export const roleOptions: Record<ERoleCode, ISelectOption> = {
+    [ERoleCode.CLIENT]: {label: 'Клиент', value: ERoleCode.CLIENT},
+    [ERoleCode.ADMIN]: {label: 'Администратор', value: ERoleCode.ADMIN},
+    [ERoleCode.EMPLOYER]: {label: 'Сотрудник', value: ERoleCode.EMPLOYER}
+};
+
+export const usersNameRole: Record<ERoleCode, string> = {
+    [ERoleCode.ADMIN]: 'Папков И.В.',
+    [ERoleCode.CLIENT]: 'Орешкин А.Е.',
+    [ERoleCode.EMPLOYER]: 'Гурьянов А.А.'
+};
 
 export const tabsOptions: ITabsOptionItem[] = [
     {label: "Информация о клиенте", value: "client", checked: false, route: routers.ClientInfoRoute},
     {label: "Информация об организации", value: "entity", checked: false, route: routers.EntityInfoRoute},
     {label: "Информация об имуществе", value: "immovable", checked: false, route: routers.ImmovableInfoRoute},
     {label: "Информация об учредителях", value: "founder", checked: false, route: routers.FounderInfoRoute},
-]
+];
 
 export enum EFormFields {
     CLIENT_EMAIL = "CLIENT_EMAIL",

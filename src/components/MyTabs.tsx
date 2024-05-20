@@ -10,23 +10,23 @@ export interface ITabsOptionItem {
     checked: boolean
 }
 
-type IProp = {
+type TProp = {
     name: string
     options: ITabsOptionItem[];
 }
 
-const MyTabs: FC<IProp> = (props) => {
+const MyTabs: FC<TProp> = (props) => {
     const {options, name} = props;
 
-    return <fieldset className="my__tabs" id={name}>
+    return <nav className="nav" id={name}>
         {options.map((optionItem, index) => {
-            return <Link className="my__tabs--item" to={optionItem.route.route}>
-                {index > 1 && <div className="my__tabs--item-line"/>}
-                <input type="checkbox" className="my__tabs--item-input" name={optionItem.value + index} checked={optionItem.checked}/>
-                <label className="my__tabs--item-label" htmlFor={optionItem.value + index}></label>
+            return <Link className="nav--item" to={optionItem.route.route}>
+                {index > 1 && <div className="nav--item-line"/>}
+                <input type="checkbox" className="nav--item-input" name={optionItem.value + index} checked={optionItem.checked}/>
+                <label className="nav--item-label" htmlFor={optionItem.value + index}>{optionItem.label}</label>
             </Link>
         })}
-    </fieldset>
+    </nav>
 }
 
 export default observer(MyTabs);

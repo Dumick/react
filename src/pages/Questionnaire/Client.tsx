@@ -5,9 +5,7 @@ import {ClientInfoRoute} from "../../models/routes";
 
 const Client: FC = () => {
     return <WrapperBlock title={ClientInfoRoute.title}>
-        <fieldset>
-            
-        </fieldset>
+
     </WrapperBlock>
 }
 
