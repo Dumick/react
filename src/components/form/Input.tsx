@@ -1,33 +1,38 @@
-import React, {FC, ReactElement} from 'react';
+import React, {FC} from 'react';
 import InputMask from 'react-input-mask';
+import {Control, Controller} from 'react-hook-form';
+import {EFormFields, EInputType} from "../../models";
+import {TDefaultValue} from "../../models/schemes/defaultValue";
 
-
-interface EditableInputProps {
+type EditableInputProps = {
     name: string
-    value: string
     label: string
     mask?: string
-    inputType?: string
+    type?: EInputType
     inputClass?: string
+    control: Control<TDefaultValue>
 }
 
 const MyInput: FC<EditableInputProps> = (props) => {
-    const {name, value, mask, label, inputType = 'text', inputClass = 'my-input'} = props;
 
-    const handleChange = () => {
+    return <label className="my-input" htmlFor={props?.name}>
+        <span className="my-input__label">{props?.label}</span>
 
-    }
+        <Controller
+            name={props?.name}
+            control={props?.control}
+            render={({field, fieldState: {error}}) =>
+                <>
+                    {props?.mask?.length > 0
+                        ? <InputMask mask={props?.mask} {...field}>
+                            {inputProps => <input {...inputProps} />}
+                        </InputMask>
+                        : <input className="my-input__field" {...field}/>}
+                    <span className="my-input__error">{error?.message}</span>
+                </>
+            }
+        />
 
-    let content: ReactElement;
-    if (mask?.length > 0)
-        content = <InputMask mask={mask} id={name} value={value}/>
-
-    content = <input type={inputType} name={name} value={value}/>
-
-    return <label>
-        {label}
-        {content}
-        <span>{}</span>
     </label>
 };
 

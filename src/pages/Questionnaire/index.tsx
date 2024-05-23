@@ -1,19 +1,20 @@
 import {FC} from "react";
 import {observer} from "mobx-react-lite";
+import {Controller, useForm} from "react-hook-form";
 
 import Client from "./Client";
-import Entity from "./Entity";
-import Founders from "./Founders";
-import Immovable from "./Immovable";
+import {initialValue} from "../../models/schemes/defaultValue";
 
 const Questionnaire: FC = () => {
+    const {control, handleSubmit} = useForm({
+        defaultValues: initialValue,
+    });
 
-    return <section className="questionnaire">
-        <Client/>
-        {/*<Entity/>*/}
-        {/*<Founders/>*/}
-        {/*<Immovable/>*/}
-    </section>
+    const onSubmit = data => console.log(data);
+
+    return <form className="questionnaire" onSubmit={handleSubmit(onSubmit)}>
+        <Client control={control}/>
+    </form>
 }
 
 export default observer(Questionnaire);

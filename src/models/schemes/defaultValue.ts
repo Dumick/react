@@ -3,7 +3,7 @@ export type TDefaultValue = {
     entity?: TEntityData
     account?: TAccountData[]
     founders?: TFoundersData[]
-    directory?: TDirectoryData
+    director?: TDirectoryData
     immovable?: TImmovableData[]
     contact_client?: TClientContactData
 }
@@ -42,6 +42,8 @@ type TDefaultClientData = {
     second_name: string
 }
 
+type TClientContactData = TDefaultClientData;
+
 interface TFoundersData extends TDefaultClientData {
     no: number
     inn: number
@@ -53,14 +55,17 @@ interface TFoundersData extends TDefaultClientData {
     actual_address: string
 }
 
-type TDirectoryData = TDefaultClientData;
-type TClientContactData = TDefaultClientData;
+interface TDirectoryData extends TDefaultClientData {
+    inn: number
+    position: string
+}
 
 type TEntityData = {
-    KPP: string
-    INN: string
-    OGRN: string
-    OKVED: string
+    kpp: string
+    ogrn: string
+    okved: string
+    inn: string
+    name: string
 }
 
 type TAccountData = {
@@ -76,7 +81,7 @@ type TImmovableData = {
     address: string
 }
 
-const initialValue: TDefaultValue = {
+export const initialValue: TDefaultValue = {
     client: {
         email: '',
         phone: '',
@@ -96,5 +101,32 @@ const initialValue: TDefaultValue = {
         match_address: '',
         actual_address: '',
     },
-
+    contact_client: {
+        email: '',
+        phone: '',
+        gender: '',
+        last_name: '',
+        first_name: '',
+        second_name: '',
+    },
+    director: {
+        email: '',
+        phone: '',
+        gender: '',
+        second_name: '',
+        last_name: '',
+        first_name: '',
+        inn: null,
+        position: ''
+    },
+    entity: {
+        inn: null,
+        kpp: '',
+        name: '',
+        ogrn: '',
+        okved: '',
+    },
+    immovable: [],
+    account: [],
+    founders: [],
 }

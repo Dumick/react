@@ -16,7 +16,7 @@ interface IFieldNumber extends TFieldText {
 
 }
 
-export const FormValues: Record<EFormFields, TFormFields> = {
+/*export const FormValues: Record<EFormFields, TFormFields> = {
     [EFormFields.CLIENT_LAST_NAME]: {
         required: true,
         label: "Фамилию",
@@ -99,4 +99,4 @@ export const FormValues: Record<EFormFields, TFormFields> = {
         name: EFormFields.CONTACT_SECOND_NAME
     },
 
-}
+}*/
