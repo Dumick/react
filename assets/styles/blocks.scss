@@ -3,18 +3,46 @@
 
 	gap: 20px;
 	flex-direction: column;
+
+	&__btn {
+		width: 60%;
+		margin-bottom: 20px;
+
+		display: flex;
+		justify-content: flex-end;
+	}
 }
 
 .block {
-	width: 85%;
+	width: 60%;
 	border-radius: 8px;
 	background-color: #f9f9f9;
+
+	min-width: 360px;
 
 	color: #3e3e3e;
 	padding: 1em 2em;
 
 	&__head {
+		margin-bottom: 20px;
 		padding-bottom: 10px;
 		border-bottom: 3px solid #ccc;
 	}
+
+	&__subtitle {
+		margin: 40px 0 25px 0;
+
+
+		&--label {
+			min-width: 200px;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.block,
+	.questionnaire__btn{
+		width: 80%;
+	}
+
 }

@@ -1,20 +1,28 @@
 import {FC} from "react";
 import {observer} from "mobx-react-lite";
-import {Controller, useForm} from "react-hook-form";
+import {useForm, FormProvider} from "react-hook-form";
 
 import Client from "./Client";
-import {initialValue} from "../../models/schemes/defaultValue";
+import Entity from "./Entity";
+
+import formStore from "../../store/formStore";
 
 const Questionnaire: FC = () => {
-    const {control, handleSubmit} = useForm({
-        defaultValues: initialValue,
+    const methods = useForm({
+        defaultValues: formStore.preSaveForm,
     });
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data: any) => formStore.setDataForm(data);
 
-    return <form className="questionnaire" onSubmit={handleSubmit(onSubmit)}>
-        <Client control={control}/>
-    </form>
+    return <FormProvider {...methods}>
+        <form className="questionnaire" onSubmit={methods.handleSubmit(onSubmit)}>
+
+            <Client/>
+            <Entity/>
+
+            <button type="submit">Сохранить</button>
+        </form>
+    </FormProvider>
 }
 
 export default observer(Questionnaire);

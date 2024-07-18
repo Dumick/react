@@ -3,7 +3,7 @@ export interface IRoute {
     route: string;
 }
 
-export const QUESTIONNAIRE: string = '/questionnaire'
+export const QUESTIONNAIRE: string = '/questionnaire';
 
 const ROUTE_CLIENT_INFO: string = QUESTIONNAIRE + '/client';
 const ROUTE_CLIENT_INFO_TITLE: string = 'Информация о клиенте';
@@ -15,7 +15,13 @@ const ROUTE_FOUNDER_INFO: string = QUESTIONNAIRE + '/founders';
 const ROUTE_FOUNDER_INFO_TITLE: string = 'Информация об учредителях';
 
 const ROUTE_IMMOVABLE_INFO: string = QUESTIONNAIRE + '/immovable';
-const ROUTE_IMMOVABLE_INFO_TITLE: string = 'Информация об  имуществе';
+const ROUTE_IMMOVABLE_INFO_TITLE: string = 'Информация об имуществе';
+
+const ROUTE_ACCOUNT_INFO: string = QUESTIONNAIRE + '/account';
+const ROUTE_ACCOUNT_INFO_TITLE: string = 'Информация о счетах клинета';
+
+const ROUTE_DOCUMENTS: string = QUESTIONNAIRE + '/documents';
+const ROUTE_DOCUMENTS_TITLE: string = 'Документы клиента';
 
 export const ClientInfoRoute: IRoute = {
     route: ROUTE_CLIENT_INFO,
@@ -37,3 +43,12 @@ export const FounderInfoRoute: IRoute = {
     title: ROUTE_FOUNDER_INFO_TITLE
 } as const;
 
+export const DocumentRoute: IRoute = {
+    route: ROUTE_DOCUMENTS,
+    title: ROUTE_DOCUMENTS_TITLE
+} as const;
+
+export const AccountRoute: IRoute = {
+    route: ROUTE_ACCOUNT_INFO,
+    title: ROUTE_ACCOUNT_INFO_TITLE
+} as const;

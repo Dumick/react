@@ -1,0 +1,22 @@
+.flex {
+	display: flex;
+	gap: 15px;
+
+	&__no-wrap {
+		flex-wrap: nowrap;
+	}
+
+	&__row + &__row {
+		margin-top: 15px
+	}
+
+	&__row {
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__col {
+		flex-grow: 1;
+		flex-direction: column;
+	}
+}

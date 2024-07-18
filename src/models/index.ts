@@ -1,6 +1,6 @@
-import {ITabsOptionItem} from "../components/MyTabs";
 import * as routers from "./routes";
 import {ISelectOption} from "./types";
+import {ITabsOptionItem} from "../components/Steps";
 
 export enum ERoleCode {
     ADMIN = 'ADMIN',
@@ -9,6 +9,7 @@ export enum ERoleCode {
 }
 
 export enum EInputType {
+    date = 'date',
     text = 'text',
     number = 'number',
 }
@@ -19,6 +20,27 @@ export const roleOptions: Record<ERoleCode, ISelectOption> = {
     [ERoleCode.EMPLOYER]: {label: 'Сотрудник', value: ERoleCode.EMPLOYER}
 };
 
+export const typeOwnership: ISelectOption[] = [
+    {label: "Аренда", value: "rent"},
+    {label: "Частная собственность", value: "private"},
+    {label: "Государственная собственность", value: "state"},
+    {label: "Муниципальная собственность", value: "municipal"},
+    {label: "Смешанная собственность", value: "mixed"},
+]
+
+export const positionDirection: ISelectOption[] = [
+    {label: "Директор", value: "DIR"},
+    {label: "Генеральный директор", value: "DIR_MAIN"},
+]
+
+export const taxSystems: ISelectOption[] = [
+    {label: "Основная система налогообложения", value: "OSN"},
+    {label: "Урощенная система налогообложения", value: "USN"},
+    {label: "Автоматизированная упрощенная система налогообложения", value: "AUSN"},
+    {label: "Единый сельскохозяйственный налог", value: "ESN"},
+    {label: "Патентная система налогообложения", value: "PSN"},
+];
+
 export const usersNameRole: Record<ERoleCode, string> = {
     [ERoleCode.ADMIN]: 'Папков И.В.',
     [ERoleCode.CLIENT]: 'Орешкин А.Е.',
@@ -26,53 +48,54 @@ export const usersNameRole: Record<ERoleCode, string> = {
 };
 
 export const tabsOptions: ITabsOptionItem[] = [
-    {label: "Информация о клиенте", value: "client", checked: false, route: routers.ClientInfoRoute},
-    {label: "Информация об организации", value: "entity", checked: false, route: routers.EntityInfoRoute},
-    {label: "Информация об имуществе", value: "immovable", checked: false, route: routers.ImmovableInfoRoute},
-    {label: "Информация об учредителях", value: "founder", checked: false, route: routers.FounderInfoRoute},
+    {no: 1, label: "Информация о клиенте", value: "client", checked: false, route: routers.ClientInfoRoute},
+    {no: 2, label: "Информация об организации", value: "entity", checked: false, route: routers.EntityInfoRoute},
+    {no: 3, label: "Информация об учредителях", value: "founder", checked: false, route: routers.FounderInfoRoute},
+    {no: 4, label: "Информация об имуществе", value: "immovable", checked: false, route: routers.ImmovableInfoRoute},
+    {no: 5, label: "Информация о счетах", value: "account", checked: false, route: routers.AccountRoute},
+    {no: 6, label: "Документы клиента", value: "documents", checked: false, route: routers.DocumentRoute},
 ];
 
-export const CLIENT = "CLIENT.";
+export enum EFormPrefix {
+    CLIENT = "CLIENT.",
+    ENTITY = "ENTITY.",
+    LEASING = 'LEASING.',
+    CONTACT = "CONTACT.",
+    DIRECTOR = "DIRECTOR.",
+}
 
 export enum EFormFields {
-    CLIENT_EMAIL = "CLIENT_EMAIL",
-    CLIENT_PHONE = "CLIENT_PHONE",
-    CLIENT_GENDER = "CLIENT_GENDER",
-    CLIENT_LAST_NAME = "CLIENT_LAST_NAME",
-    CLIENT_FIRST_NAME = "CLIENT_FIRST_NAME",
-    CLIENT_SECOND_NAME = "CLIENT_SECOND_NAME",
-    CLIENT_REG_ADDRESS = "CLIENT_REG_ADDRESS",
-    CLIENT_FAMILY_STATUS = "CLIENT_FAMILY_STATUS",
-    CLIENT_MATCH_ADDRESS = "CLIENT_MATCH_ADDRESSES",
-    CLIENT_ACTUAL_ADDRESS = "CLIENT_ACTUAL_ADDRESS",
+    EMAIL = "EMAIL",
+    PHONE = "PHONE",
+    GENDER = "GENDER",
+    POSITION = "POSITION",
+    LAST_NAME = "LAST_NAME",
+    FIRST_NAME = "FIRST_NAME",
+    SECOND_NAME = "SECOND_NAME",
+    REG_ADDRESS = "REG_ADDRESS",
+    FAMILY_STATUS = "FAMILY_STATUS",
+    MATCH_ADDRESS = "MATCH_ADDRESSES",
+    ACTUAL_ADDRESS = "ACTUAL_ADDRESS",
 
-    CLIENT_BIRTH_DATE = "CLIENT_BIRTH_DATE",
-    CLIENT_BIRTH_PLACE = "CLIENT_BIRTH_PLACE",
-    CLIENT_DOC_NO = "CLIENT_DOC_NO",
-    CLIENT_DOC_SERIES = "CLIENT_DOC_SERIES",
-    CLIENT_DOC_IIS_CODE = "CLIENT_DOC_IIS_CODE",
-    CLIENT_DOC_IIS_NAME = "CLIENT_DOC_IIS_NAME",
-    CLIENT_DOC_IIS_DATE = "CLIENT_DOC_IIS_DATE",
-
-    CONTACT_PHONE = "CONTACT_PHONE",
-    CONTACT_EMAIL = "CONTACT_EMAIL",
-    CONTACT_GENDER = "CONTACT_GENDER",
-    CONTACT_LAST_NAME = "CONTACT_LAST_NAME",
-    CONTACT_FIRST_NAME = "CONTACT_FIRST_NAME",
-    CONTACT_SECOND_NAME = "CONTACT_SECOND_NAME",
-
-    DIRECTOR_EMAIL = "DIRECTOR_EMAIL",
-    DIRECTOR_PHONE = "DIRECTOR_PHONE",
-    DIRECTOR_GENDER = "DIRECTOR_GENDER",
-    DIRECTOR_SECOND_NAME = "DIRECTOR_SECOND_NAME",
-    DIRECTOR_LAST_NAME = "DIRECTOR_LAST_NAME",
-    DIRECTOR_FIRST_NAME = "DIRECTOR_FIRST_NAME",
-    DIRECTOR_INN = "DIRECTOR_INN",
-    DIRECTOR_POSITION = "DIRECTOR_POSITION",
+    BIRTH_DATE = "BIRTH_DATE",
+    BIRTH_PLACE = "BIRTH_PLACE",
+    DOC_NO = "DOC_NO",
+    DOC_SERIES = "DOC_SERIES",
+    DOC_IIS_CODE = "DOC_IIS_CODE",
+    DOC_IIS_NAME = "DOC_IIS_NAME",
+    DOC_IIS_DATE = "DOC_IIS_DATE",
 
     INN = "INN",
-    KPP = "KPP",
+    TAX_SYSTEM = "TAX_SYSTEM",
+    LEGAL_ADDRESS = "LEGAL_ADDRESS",
+    TYPE_OWNERSHIP = "TYPE_OWNERSHIP",
+    COUNT_EMPLOYMENT = "COUNT_EMPLOYMENT",
+    MATCH_LEGAL_ACTUAL = "MATCH_LEGAL_ACTUAL",
+
     NAME = "NAME",
-    OGRN = "OGRN",
-    OKVED = "OKVED",
+    AMOUNT = "AMOUNT",
+    DOCUMENT = "DOCUMENT",
+    END_DATE = "END_DATE",
+    TERMINATE = "TERMINATE",
+    PROLONGATION = "PROLONGATION",
 }

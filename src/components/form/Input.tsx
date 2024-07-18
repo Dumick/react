@@ -1,39 +1,42 @@
 import React, {FC} from 'react';
 import InputMask from 'react-input-mask';
-import {Control, Controller} from 'react-hook-form';
-import {EFormFields, EInputType} from "../../models";
-import {TDefaultValue} from "../../models/schemes/defaultValue";
+import {useController, useFormContext} from 'react-hook-form';
+
+import {EFormPrefix, EInputType} from "../../models";
 
 type EditableInputProps = {
     name: string
     label: string
     mask?: string
     type?: EInputType
+    prefix: EFormPrefix
     inputClass?: string
-    control: Control<TDefaultValue>
 }
 
 const MyInput: FC<EditableInputProps> = (props) => {
 
-    return <label className="my-input" htmlFor={props?.name}>
-        <span className="my-input__label">{props?.label}</span>
+    const {control} = useFormContext();
+    const {field, fieldState: {error}} = useController({...control, name: props.prefix + props.name});
 
-        <Controller
-            name={props?.name}
-            control={props?.control}
-            render={({field, fieldState: {error}}) =>
-                <>
-                    {props?.mask?.length > 0
-                        ? <InputMask mask={props?.mask} {...field}>
-                            {inputProps => <input {...inputProps} />}
-                        </InputMask>
-                        : <input className="my-input__field" {...field}/>}
-                    <span className="my-input__error">{error?.message}</span>
-                </>
-            }
-        />
+    const inputProps = {
+        type: props.type || "text",
+        value: field.value || "",
+        id: props.prefix + props.name,
+        className: "my-input__field",
+        autoComplete: "off",
+        onChange: e => {
+            field.onChange(e.target.value);
+        }
+    }
 
-    </label>
+    return <div className="my-input">
+        {props?.mask
+            ? <InputMask mask={props.mask} {...inputProps}/>
+            : <input {...inputProps}/>}
+
+        <label htmlFor={props.prefix + props?.name} className="my-input__label">{props?.label}</label>
+        <p className="my-input__error">{error?.message}</p>
+    </div>
 };
 
 export default MyInput;

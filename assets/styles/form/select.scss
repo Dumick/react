@@ -1,0 +1,36 @@
+.select__wrap {
+	position: relative;
+
+	label {
+		top: -5px;
+		position: absolute;
+
+		cursor: text;
+		z-index: 2;
+		left: 10px;
+		font-size: 12px;
+		font-weight: bold;
+		padding: 0 10px;
+		color: #999;
+		transition: all 0.3s ease;
+		background-color: #f9f9f9;
+	}
+}
+
+.my-select {
+	height: 50px;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	background-color: transparent;
+
+	&__control {
+		height: 100%;
+		border: none !important;
+		background-color: transparent !important;
+	}
+
+	&__menu {
+		z-index: 10 !important;
+	}
+}

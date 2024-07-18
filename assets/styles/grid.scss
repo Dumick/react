@@ -1,0 +1,20 @@
+.grid {
+	display: grid;
+	gap: 10px;
+
+	&__row {
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	}
+
+	&__1fr_2fr {
+		grid-template-columns: 1fr 2fr;
+	}
+
+	&__2fr_1fr {
+		grid-template-columns: 2fr 1fr;
+	}
+}
+
+.grid + .grid {
+	margin-top: 20px;
+}

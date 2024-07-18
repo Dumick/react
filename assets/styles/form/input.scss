@@ -1,0 +1,52 @@
+.my-input {
+	position: relative;
+	margin-bottom: 15px;
+
+	&__field {
+		display: block;
+		width: 100%;
+		height: 50px;
+		background: transparent;
+		border: solid 1px #ccc;
+		transition: all .3s ease;
+		padding: 0 15px;
+		border-radius: 3px;
+
+		font-size: 14px;
+		letter-spacing: 2px;
+
+		outline: none;
+
+		&:focus {
+			border-color: #5d98e3;
+		}
+	}
+
+	&__label {
+		position: absolute;
+		cursor: text;
+		z-index: 2;
+		top: 13px;
+		left: 10px;
+		font-size: 12px;
+		font-weight: bold;
+		padding: 0 10px;
+		color: #999;
+		transition: all .3s ease;
+		background-color: #f9f9f9;
+	}
+
+	&__field:focus + .my-input__label,
+	&__field:empty + .my-input__label{
+		font-size: 11px;
+		top: -5px;
+	}
+
+	&__field:focus + &__label {
+		color: #5d98e3;
+	}
+
+	&__error {
+		color: #a94442;
+	}
+}

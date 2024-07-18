@@ -1,0 +1,31 @@
+.btn {
+	font-size: 14px;
+	padding: 10px 20px;
+
+	cursor: pointer;
+	border-radius: 3px;
+	border: 2px solid #ccc;
+	background-color: transparent;
+
+	transition: all .3s;
+
+	&:hover {
+		background-color: #f4f4f4;
+	}
+
+	&:disabled {
+		color: #dcdcdc;
+		border-color: #ccc;
+		pointer-events: none;
+	}
+
+	&__save {
+		color: #333;
+		border-color: #a1c0e4;
+		background-color: #a1c0e4;
+
+		&:hover {
+			background-color: #bbd7ef;
+		}
+	}
+}
