@@ -2,6 +2,7 @@ import {FC} from "react";
 import {observer} from "mobx-react-lite";
 import {useForm, FormProvider} from "react-hook-form";
 
+import Loan from "./Loan";
 import Client from "./Client";
 import Entity from "./Entity";
 
@@ -17,10 +18,13 @@ const Questionnaire: FC = () => {
     return <FormProvider {...methods}>
         <form className="questionnaire" onSubmit={methods.handleSubmit(onSubmit)}>
 
+            <Loan/>
             <Client/>
             <Entity/>
 
-            <button type="submit">Сохранить</button>
+            <div className="questionnaire__btn">
+                <button type="submit">Сохранить</button>
+            </div>
         </form>
     </FormProvider>
 }

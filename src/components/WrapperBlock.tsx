@@ -1,20 +1,19 @@
 import {FC, ReactNode} from "react";
 
 type IProp = {
+    id: string
     title: string
     children?: ReactNode
 };
 
 const WrapperBlock: FC<IProp> = (props) => {
-    const {title, children} = props;
-
-    return <article className="block">
+    return <article className="block" id={props.id}>
         <div className="block__head">
-            <h3 className="block__head--title">{title}</h3>
+            <h3 className="block__head--title">{props.title}</h3>
         </div>
 
         <fieldset className="block__body">
-            {children}
+            {props.children}
         </fieldset>
     </article>
 };

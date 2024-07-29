@@ -10,32 +10,54 @@
 
 		display: flex;
 		justify-content: flex-end;
+
+		button {
+			color: #3e3e3e;
+			font-weight: bold;
+			padding: 0.5em 1em;
+			border-radius: 4px;
+			border: 2px solid #ccc;
+			background-color: #fafafa;
+
+			cursor: pointer;
+			transition: .3s;
+
+			&:hover {
+				background-color: #ccc;
+			}
+		}
 	}
 }
 
 .block {
-	width: 60%;
-	border-radius: 8px;
-	background-color: #f9f9f9;
-
+	width: 65%;
 	min-width: 360px;
 
 	color: #3e3e3e;
-	padding: 1em 2em;
 
 	&__head {
+		padding: 0.8em 1em;
+		border-radius: 4px;
 		margin-bottom: 20px;
-		padding-bottom: 10px;
-		border-bottom: 3px solid #ccc;
+		border: 2px solid #ccc;
+
+		background-color: #fafafa;
 	}
 
-	&__subtitle {
-		margin: 40px 0 25px 0;
+	&-sub + &-sub {
+		margin-top: 1em;
+	}
 
+	&-sub {
 
-		&--label {
-			min-width: 200px;
+		padding: 0.8em 1em;
+		border-radius: 4px;
+		background-color: #fafafa;
+
+		&__title {
+			padding: 0 0 0.8em 0;
 		}
+
 	}
 }
 

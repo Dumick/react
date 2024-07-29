@@ -4,7 +4,7 @@ import WrapperBlock from "../../components/WrapperBlock";
 import {FounderInfoRoute} from "../../models/routes";
 
 const Founders: FC = () => {
-    return <WrapperBlock title={FounderInfoRoute.title}>
+    return <WrapperBlock title={FounderInfoRoute.title} id="founders">
         <fieldset>
 
         </fieldset>

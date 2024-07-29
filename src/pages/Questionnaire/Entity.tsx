@@ -20,13 +20,19 @@ const Entity: FC = () => {
         director = EFormPrefix.DIRECTOR,
         isVisible = watch(prefix + EFormFields.MATCH_LEGAL_ACTUAL) === EBoolean.NO;
 
-    return <WrapperBlock title={EntityInfoRoute.title}>
+    return <WrapperBlock title={EntityInfoRoute.title} id="entity">
 
-        <div className="grid grid__1fr_2fr">
+        <div className="grid grid__1fr_1fr_2fr">
             <MyInput
                 label="ИНН"
                 prefix={prefix}
                 name={EFormFields.INN}
+            />
+
+            <MyInput
+                label="КПП"
+                prefix={prefix}
+                name={EFormFields.KPP}
             />
 
             <MySelect
@@ -37,7 +43,12 @@ const Entity: FC = () => {
             />
         </div>
 
-        <div className="grid grid__1fr_2fr">
+        <div className="grid grid__1fr_1fr_2fr">
+            <MyInput
+                label="ОГРН"
+                prefix={prefix}
+                name={EFormFields.OGRN}
+            />
             <MyInput
                 label="Количество сотрудников"
                 prefix={prefix}

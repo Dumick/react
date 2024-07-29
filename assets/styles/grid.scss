@@ -13,6 +13,10 @@
 	&__2fr_1fr {
 		grid-template-columns: 2fr 1fr;
 	}
+
+	&__1fr_1fr_2fr {
+		grid-template-columns: 1fr 1fr 2fr;
+	}
 }
 
 .grid + .grid {

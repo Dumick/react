@@ -15,12 +15,19 @@ import VisibleElement from "../../components/VisibleElement";
 const Client: FC = () => {
     const {watch} = useFormContext();
 
-    const prefix = EFormPrefix.CLIENT;
-    const prefix_contact = EFormPrefix.CONTACT;
+    const prefix = EFormPrefix.CLIENT,
+        prefix_child = EFormPrefix.CHILD;
+
     const isVisible = watch(prefix + EFormFields.MATCH_ADDRESS) === EBoolean.NO;
 
-    return <>
-        <WrapperBlock title={ClientInfoRoute.title}>
+    return <WrapperBlock title={ClientInfoRoute.title} id="client">
+
+        <div className="block-sub">
+
+            <div className="block-sub__title">
+                <h4>Основная информация</h4>
+            </div>
+
             <div className="grid grid__row">
                 <MyInput
                     label="Фамилия"
@@ -54,6 +61,8 @@ const Client: FC = () => {
                     label="Электронная почта"
                     name={EFormFields.EMAIL}
                 />
+
+
             </div>
 
             <div className="grid grid__row">
@@ -70,10 +79,22 @@ const Client: FC = () => {
                     label="Вы состоите в официальном браке?"
                     name={EFormFields.FAMILY_STATUS}
                 />
+
+                <MyRadio
+                    prefix={prefix}
+                    options={BoolOptions}
+                    name={EFormFields.RESIDENT}
+                    label="Вы являетесь гражданином РФ?"
+                />
             </div>
 
-            <div className="block__subtitle">
-                <h4 className="block__subtitle--label">Паспортные данные</h4>
+        </div>
+
+
+        <div className="block-sub">
+
+            <div className="block-sub__title">
+                <h4>Паспортные данные</h4>
             </div>
 
             <div className="grid grid__row">
@@ -129,8 +150,12 @@ const Client: FC = () => {
                 />
             </div>
 
-            <div className="block__subtitle">
-                <h4 className="block__subtitle--label">Адресса</h4>
+        </div>
+
+        <div className="block-sub">
+
+            <div className="block-sub__title">
+                <h4>Адресса</h4>
             </div>
 
             <div className="grid">
@@ -157,52 +182,45 @@ const Client: FC = () => {
                     name={EFormFields.ACTUAL_ADDRESS}
                 />
             </VisibleElement>
-        </WrapperBlock>
 
-        <WrapperBlock title="Контактное лицо для работы с банком">
+        </div>
+
+        <div className="block-sub">
+
+            <div className="block-sub__title">
+                <h4>Несовершенно летние дети</h4>
+            </div>
+
             <div className="grid grid__row">
                 <MyInput
                     label="Фамилия"
-                    prefix={prefix_contact}
+                    prefix={prefix_child}
                     name={EFormFields.LAST_NAME}
                 />
 
                 <MyInput
                     label="Имя"
-                    prefix={prefix_contact}
+                    prefix={prefix_child}
                     name={EFormFields.FIRST_NAME}
                 />
 
                 <MyInput
                     label="Отчество"
-                    prefix={prefix_contact}
+                    prefix={prefix_child}
                     name={EFormFields.SECOND_NAME}
                 />
-            </div>
-
-            <div className="grid grid__row">
-                <MyInput
-                    prefix={prefix_contact}
-                    label="Номер телефона"
-                    mask="+7-(999)-999-99-99"
-                    name={EFormFields.PHONE}
-                />
 
                 <MyInput
-                    prefix={prefix_contact}
-                    label="Электронная почта"
-                    name={EFormFields.EMAIL}
-                />
-
-                <MyRadio
-                    label="Пол"
-                    prefix={prefix_contact}
-                    options={GenderOptions}
-                    name={EFormFields.GENDER}
+                    mask="99.99.9999"
+                    label="Дата рождения"
+                    prefix={prefix_child}
+                    name={EFormFields.BIRTH_DATE}
                 />
             </div>
-        </WrapperBlock>
-    </>
+
+        </div>
+
+    </WrapperBlock>
 }
 
 export default observer(Client);

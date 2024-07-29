@@ -1,0 +1,87 @@
+.my-range {
+	font-family: "Franklin Gothic Book", sans-serif;
+
+	&__head {
+		margin-bottom: 8px;
+
+		p {
+			color: #999;
+			font-size: 13px;
+			font-weight: bold;
+		}
+	}
+
+	&__row {
+		gap: 10px;
+		display: grid;
+		grid-template-columns: 1fr max-content;
+
+		margin-bottom: 10px;
+	}
+
+	&__wrapper {
+		width: 100%;
+		min-width: 215px;
+		padding: 10px 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+
+		.range__head {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			margin-bottom: 8px;
+
+			p {
+				color: #999;
+				font-size: 13px;
+				font-weight: bold;
+			}
+		}
+
+		.range__body {
+		}
+	}
+
+	&__input {
+
+		height: 100%;
+
+		input {
+			width: 100%;
+			height: 100%;
+
+			color: #555;
+			font-size: 13px;
+			font-weight: bold;
+
+			text-align: center;
+			border-radius: 4px;
+			border: 1px solid #ccc;
+			background-color: transparent;
+
+			outline: none;
+		}
+
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+
+	&__track {
+		width: 100%;
+		height: 3px;
+		border-radius: 4px;
+		background-color: #ccc;
+	}
+
+	&__thumb {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background-color: #999999;
+	}
+}

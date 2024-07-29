@@ -5,6 +5,9 @@ export interface IRoute {
 
 export const QUESTIONNAIRE: string = '/questionnaire';
 
+const ROUTE_LOAN_PARAMS: string = QUESTIONNAIRE + '/loan';
+const ROUTE_LOAN_PARAMS_TITLE: string = 'Информация о кредите';
+
 const ROUTE_CLIENT_INFO: string = QUESTIONNAIRE + '/client';
 const ROUTE_CLIENT_INFO_TITLE: string = 'Информация о клиенте';
 
@@ -22,6 +25,11 @@ const ROUTE_ACCOUNT_INFO_TITLE: string = 'Информация о счетах �
 
 const ROUTE_DOCUMENTS: string = QUESTIONNAIRE + '/documents';
 const ROUTE_DOCUMENTS_TITLE: string = 'Документы клиента';
+
+export const LoanParamsRoute: IRoute = {
+    route: ROUTE_LOAN_PARAMS,
+    title: ROUTE_LOAN_PARAMS_TITLE
+} as const;
 
 export const ClientInfoRoute: IRoute = {
     route: ROUTE_CLIENT_INFO,

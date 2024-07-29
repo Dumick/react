@@ -22,17 +22,22 @@ const MySelect: FC<TProp> = (props) => {
     const {control} = useFormContext();
     const {field, fieldState: {error}} = useController({...control, name: props.prefix + props.name});
 
+    const value = props.options.find(option => option.value === field.value) || "";
+
     return <div className="select__wrap">
         <label htmlFor={props.prefix + props.name}>{props.title}</label>
-    <Select
-        className="my-select"
-        classNamePrefix="my-select"
-        id={props.prefix + props.name}
+        <Select
+            className="my-select"
+            classNamePrefix="my-select"
+            value={value}
+            id={props.prefix + props.name}
 
-        options={props.options}
-        isMulti={props?.isMulti}
-        placeholder={props?.placeholder || ""}
-    />
+            isMulti={props?.isMulti}
+            placeholder={props?.placeholder || ""}
+
+            options={props.options}
+            onChange={(option: ISelectOption) => field.onChange(option?.value)}
+        />
     </div>
 }
 
