@@ -19,6 +19,7 @@
 	}
 }
 
-.grid + .grid {
-	margin-top: 20px;
+.grid__animated {
+	gap: 20px;
+	flex-direction: column;
 }

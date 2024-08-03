@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite";
 import WrapperBlock from "../../components/WrapperBlock";
 import {AccountRoute} from "../../models/routes";
 
-const Founders: FC = () => {
+const Accounts: FC = () => {
     return <WrapperBlock title={AccountRoute.title} id="accounts">
         <fieldset>
 
@@ -11,4 +11,4 @@ const Founders: FC = () => {
     </WrapperBlock>
 }
 
-export default observer(Founders);
+export default observer(Accounts);

@@ -16,109 +16,112 @@ import {useFormContext} from "react-hook-form";
 const Entity: FC = () => {
     const {watch} = useFormContext();
 
-    const prefix = EFormPrefix.ENTITY,
-        director = EFormPrefix.DIRECTOR,
+    const prefix = EFormPrefix.ENTITY + "." as EFormPrefix,
+        director = EFormPrefix.DIRECTOR + "." as EFormPrefix,
         isVisible = watch(prefix + EFormFields.MATCH_LEGAL_ACTUAL) === EBoolean.NO;
 
     return <WrapperBlock title={EntityInfoRoute.title} id="entity">
 
-        <div className="grid grid__1fr_1fr_2fr">
-            <MyInput
-                label="ИНН"
-                prefix={prefix}
-                name={EFormFields.INN}
-            />
+        <div className="block-sub">
+            <div className="grid grid__1fr_1fr_2fr">
+                <MyInput
+                    label="ИНН"
+                    prefix={prefix}
+                    name={EFormFields.INN}
+                />
 
-            <MyInput
-                label="КПП"
-                prefix={prefix}
-                name={EFormFields.KPP}
-            />
+                <MyInput
+                    label="КПП"
+                    prefix={prefix}
+                    name={EFormFields.KPP}
+                />
 
-            <MySelect
-                prefix={prefix}
-                options={typeOwnership}
-                title="Тип собственности"
-                name={EFormFields.TYPE_OWNERSHIP}
-            />
+                <MySelect
+                    prefix={prefix}
+                    options={typeOwnership}
+                    title="Тип собственности"
+                    name={EFormFields.TYPE_OWNERSHIP}
+                />
+            </div>
+
+            <div className="grid grid__1fr_1fr_2fr">
+                <MyInput
+                    label="ОГРН"
+                    prefix={prefix}
+                    name={EFormFields.OGRN}
+                />
+                <MyInput
+                    label="Количество сотрудников"
+                    prefix={prefix}
+                    name={EFormFields.COUNT_EMPLOYMENT}
+                />
+
+                <MySelect
+                    prefix={prefix}
+                    options={taxSystems}
+                    name={EFormFields.TAX_SYSTEM}
+                    title="Система налогооблажения"
+                />
+            </div>
+
+            <div className="grid grid__row">
+                <MyRadio
+                    prefix={prefix}
+                    options={BoolOptions}
+                    name={EFormFields.MATCH_LEGAL_ACTUAL}
+                    label="Адрес ведения бизнеса совпадает с адресом ващей регистрации"
+                />
+            </div>
+
+            <VisibleElement isVisible={isVisible} className="grid">
+                <MyInput
+                    prefix={prefix}
+                    label="Адрес регистрации"
+                    name={EFormFields.LEGAL_ADDRESS}
+                />
+            </VisibleElement>
         </div>
 
-        <div className="grid grid__1fr_1fr_2fr">
-            <MyInput
-                label="ОГРН"
-                prefix={prefix}
-                name={EFormFields.OGRN}
-            />
-            <MyInput
-                label="Количество сотрудников"
-                prefix={prefix}
-                name={EFormFields.COUNT_EMPLOYMENT}
-            />
+        <div className="block-sub">
+            <div className="block__subtitle">
+                <h4 className="block__subtitle--label">Данные о директоре</h4>
+            </div>
 
-            <MySelect
-                prefix={prefix}
-                options={taxSystems}
-                name={EFormFields.TAX_SYSTEM}
-                title="Система налогооблажения"
-            />
+            <div className="grid grid__row">
+                <MyInput
+                    label="Фамилия"
+                    prefix={director}
+                    name={EFormFields.LAST_NAME}
+                />
+
+                <MyInput
+                    label="Имя"
+                    prefix={director}
+                    name={EFormFields.FIRST_NAME}
+                />
+
+                <MyInput
+                    label="Отчество"
+                    prefix={director}
+                    name={EFormFields.SECOND_NAME}
+                />
+            </div>
+
+            <div className="grid grid__row">
+                <MyInput
+                    label="ИНН"
+                    prefix={director}
+                    name={EFormFields.INN}
+                />
+
+                <MySelect
+                    title="Должность"
+                    prefix={director}
+                    options={positionDirection}
+                    name={EFormFields.POSITION}
+                />
+            </div>
         </div>
-
-        <div className="grid grid__row">
-            <MyRadio
-                prefix={prefix}
-                options={BoolOptions}
-                name={EFormFields.MATCH_LEGAL_ACTUAL}
-                label="Адрес ведения бизнеса совпадает с адресом ващей регистрации"
-            />
-        </div>
-
-        <VisibleElement isVisible={isVisible} className="grid">
-            <MyInput
-                prefix={prefix}
-                label="Адрес регистрации"
-                name={EFormFields.LEGAL_ADDRESS}
-            />
-        </VisibleElement>
-
-        <div className="block__subtitle">
-            <h4 className="block__subtitle--label">Данные о директоре</h4>
-        </div>
-
-        <div className="grid grid__row">
-            <MyInput
-                label="Фамилия"
-                prefix={director}
-                name={EFormFields.LAST_NAME}
-            />
-
-            <MyInput
-                label="Имя"
-                prefix={director}
-                name={EFormFields.FIRST_NAME}
-            />
-
-            <MyInput
-                label="Отчество"
-                prefix={director}
-                name={EFormFields.SECOND_NAME}
-            />
-        </div>
-
-        <div className="grid grid__row">
-            <MyInput
-                label="ИНН"
-                prefix={director}
-                name={EFormFields.INN}
-            />
-
-            <MySelect
-                title="Должность"
-                prefix={director}
-                options={positionDirection}
-                name={EFormFields.POSITION}
-            />
-        </div>
-
     </WrapperBlock>
 }
 

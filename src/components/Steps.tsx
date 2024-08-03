@@ -6,22 +6,22 @@ import {tabsOptions} from "../models";
 
 export interface ITabsOptionItem {
     no: number
-    label: string
     value: string
     route: IRoute
     checked: boolean
 }
 
 const Steps: FC = () => {
+
     return <div className="steps">
-        {tabsOptions.map(item => {
-            return <div className="steps__item" key={useId()}>
-                <Link to={item?.route?.route} className="steps__item" >
-                    <div className="steps__item--line"/>
-                    <div className="steps__item--number">{item?.no}</div>
+        <div className="wrapper">
+            {tabsOptions.map((item, index) => {
+                return <Link to={item?.route?.route} key={useId()} className="steps__item">
+                    <p className="steps__item--number">{item?.no}</p>
+                    <p className="steps__item--label">{item?.route?.title}</p>
                 </Link>
-            </div>
-        })}
+            })}
+        </div>
     </div>
 }
 

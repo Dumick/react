@@ -1,6 +1,7 @@
 import * as routers from "./routes";
 import {IProgramOption, ISelectOption} from "./types";
 import {ITabsOptionItem} from "../components/Steps";
+import {LoanParamsRoute} from "./routes";
 
 export enum ERoleCode {
     ADMIN = 'ADMIN',
@@ -48,13 +49,11 @@ export const usersNameRole: Record<ERoleCode, string> = {
 };
 
 export const tabsOptions: ITabsOptionItem[] = [
-    {no: 1, label: "Информация о клиенте", value: "client", checked: false, route: routers.ClientInfoRoute},
-    {no: 1, label: "Информация о кредите", value: "client", checked: false, route: routers.ClientInfoRoute},
-    {no: 2, label: "Информация об организации", value: "entity", checked: false, route: routers.EntityInfoRoute},
-    {no: 3, label: "Информация об учредителях", value: "founder", checked: false, route: routers.FounderInfoRoute},
-    {no: 4, label: "Информация об имуществе", value: "immovable", checked: false, route: routers.ImmovableInfoRoute},
-    {no: 5, label: "Информация о счетах", value: "account", checked: false, route: routers.AccountRoute},
-    {no: 6, label: "Документы клиента", value: "documents", checked: false, route: routers.DocumentRoute},
+    {no: 1, value: "loan", checked: false, route: routers.LoanParamsRoute},
+    {no: 2, value: "client", checked: false, route: routers.ClientInfoRoute},
+    {no: 3, value: "entity", checked: false, route: routers.EntityInfoRoute},
+    {no: 4, value: "accounts", checked: false, route: routers.AccountRoute},
+    // {no: 6, label: "Документы клиента", value: "documents", checked: false, route: routers.DocumentRoute},
 ];
 
 export const productOptions: IProgramOption[] = [
@@ -64,16 +63,17 @@ export const productOptions: IProgramOption[] = [
 ]
 
 export enum EFormPrefix {
-    LOAN = "LOAN.",
-    CHILD = "CHILD.",          // Дети
-    CLIENT = "CLIENT.",        // Клиент
-    SPOUSE = "SPOUSE.",        // Супруг
-    ENTITY = "ENTITY.",        // Организация
-    CREDIT = "CREDIT.",        // Параметры кредита
-    LEASING = 'LEASING.',      // Лизинг
-    CONTACT = "CONTACT.",      // Контактное лицо
-    DIRECTOR = "DIRECTOR.",    // Директор
-    PROVISION = "PROVISION.",  // Обеспечение
+    LOAN = "LOAN",
+    CHILD = "CHILD",          // Дети
+    CLIENT = "CLIENT",        // Клиент
+    SPOUSE = "SPOUSE",        // Супруг
+    ENTITY = "ENTITY",        // Организация
+    LEASING = 'LEASING',      // Лизинг
+    VEHICLE = "VEHICLE",      // Транспортные средства
+    CONTACT = "CONTACT",      // Контактное лицо
+    DIRECTOR = "DIRECTOR",    // Директор
+    FOUNDERS = "FOUNDERS",  // Обеспечение
+    IMMOVABLE = "IMMOVABLE",  // Недвижимое имущество
 }
 
 export enum EFormFields {
@@ -108,6 +108,7 @@ export enum EFormFields {
     LEGAL_ADDRESS = "LEGAL_ADDRESS",
     TYPE_OWNERSHIP = "TYPE_OWNERSHIP",
     COUNT_EMPLOYMENT = "COUNT_EMPLOYMENT",
+    MATCH_SPOUSE_LEGAL = "MATCH_SPOUSE_LEGAL",
     MATCH_LEGAL_ACTUAL = "MATCH_LEGAL_ACTUAL",
 
     NAME = "NAME",
@@ -123,6 +124,11 @@ export enum EFormFields {
     PROLONGATION = "PROLONGATION",
     SIGNATURE_TYPE = "SIGNATURE_TYPE",
 
+    YEAR = "YEAR",
+    BRAND = "BRAND",
+    MODAL = "MODAL",
+
+    SQUARE = "SQUARE",
     OBJECT = "OBJECT",
     DOC_END_DATE = "DOC_END_DATE",
     DOC_BEGIN_DATE = "DOC_BEGIN_DATE",

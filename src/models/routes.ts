@@ -12,16 +12,16 @@ const ROUTE_CLIENT_INFO: string = QUESTIONNAIRE + '/client';
 const ROUTE_CLIENT_INFO_TITLE: string = 'Информация о клиенте';
 
 const ROUTE_ENTITY_INFO: string = QUESTIONNAIRE + '/entity';
-const ROUTE_ENTITY_INFO_TITLE: string = 'Информация о организации';
+const ROUTE_ENTITY_INFO_TITLE: string = 'Информация об организации';
 
 const ROUTE_FOUNDER_INFO: string = QUESTIONNAIRE + '/founders';
-const ROUTE_FOUNDER_INFO_TITLE: string = 'Информация об учредителях';
+const ROUTE_FOUNDER_INFO_TITLE: string = 'Участники сделки';
 
 const ROUTE_IMMOVABLE_INFO: string = QUESTIONNAIRE + '/immovable';
-const ROUTE_IMMOVABLE_INFO_TITLE: string = 'Информация об имуществе';
+const ROUTE_IMMOVABLE_INFO_TITLE: string = 'Имущество во владении';
 
-const ROUTE_ACCOUNT_INFO: string = QUESTIONNAIRE + '/account';
-const ROUTE_ACCOUNT_INFO_TITLE: string = 'Информация о счетах клинета';
+const ROUTE_ACCOUNT_INFO: string = QUESTIONNAIRE + '/accounts';
+const ROUTE_ACCOUNT_INFO_TITLE: string = 'Банковские счета';
 
 const ROUTE_DOCUMENTS: string = QUESTIONNAIRE + '/documents';
 const ROUTE_DOCUMENTS_TITLE: string = 'Документы клиента';

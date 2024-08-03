@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import Layout from "./conteiners/Layout";
+import {RouterProvider} from "react-router-dom";
 
-import "../assets/styles/main.scss"
+import routes from "./routes";
 
 const App: FC = () => {
-    return <Layout/>;
+    return <RouterProvider router={routes}/>;
 }
 
 export default App;

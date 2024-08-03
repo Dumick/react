@@ -30,7 +30,7 @@
 }
 
 .block {
-	width: 65%;
+	width: 70%;
 	min-width: 360px;
 
 	color: #3e3e3e;
@@ -49,10 +49,13 @@
 	}
 
 	&-sub {
-
 		padding: 0.8em 1em;
 		border-radius: 4px;
 		background-color: #fafafa;
+
+		display: flex;
+		gap: 20px;
+		flex-direction: column;
 
 		&__title {
 			padding: 0 0 0.8em 0;
@@ -66,5 +69,4 @@
 	.questionnaire__btn{
 		width: 80%;
 	}
-
 }
